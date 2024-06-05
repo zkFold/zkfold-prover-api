@@ -1,0 +1,7 @@
+dist-newstyle/
+.dockerignore
+.gitignore
+CHANGELOG.md
+Dockerfile
+LICENSE
+README.md
