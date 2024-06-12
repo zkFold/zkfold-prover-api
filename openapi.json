@@ -1,9 +1,9 @@
 {
     "openapi": "3.0.0",
     "info": {
-      "version": "1.0.0",
+      "version": "0.1.0.0",
       "title": "ZkFold Prover API",
-      "description": "This is the API for ZkFold's prover backend"
+      "description": "ZkFold Prover API"
     },
     "servers": [
       {
