@@ -1,53 +1,42 @@
 {
-    "swagger": "2.0",
+    "openapi": "3.0.0",
     "info": {
       "version": "1.0.0",
       "title": "ZkFold Prover API",
       "description": "This is the API for ZkFold's prover backend"
     },
-    "host": "localhost:8080",
-    "basePath": "/",
-    "schemes": [
-      "http"
-    ],
-    "consumes": [
-      "application/octet-stream"
-    ],
-    "produces": [
-      "application/json"
+    "servers": [
+      {
+        "url": "http://localhost:8080",
+        "description": "Local server"
+      }
     ],
     "paths": {
       "/prove": {
         "post": {
           "summary": "Prove API",
           "description": "Endpoint for creating a zero-knowledge proof",
-          "parameters": [
-            {
-              "in": "body",
-              "name": "setup",
-              "description": "Setup data in byte string",
-              "required": true,
-              "schema": {
-                "type": "string",
-                "format": "byte"
+          "requestBody": {
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "byte"
+                }
               }
             },
-            {
-              "in": "body",
-              "name": "witness",
-              "description": "Witness data in byte string",
-              "required": true,
-              "schema": {
-                "type": "string",
-                "format": "byte"
-              }
-            }
-          ],
+            "required": true,
+            "description": "Setup and Witness data in byte strings"
+          },
           "responses": {
             "200": {
               "description": "Proof created successfully",
-              "schema": {
-                "$ref": "#/definitions/ProveAPIResult"
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProveAPIResult"
+                  }
+                }
               }
             },
             "400": {
@@ -57,27 +46,29 @@
         }
       }
     },
-    "definitions": {
-      "ProveAPIResult": {
-        "type": "object",
-        "properties": {
-          "status": {
-            "type": "string"
+    "components": {
+      "schemas": {
+        "ProveAPIResult": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string"
+            },
+            "data": {
+              "type": "string",
+              "format": "byte"
+            },
+            "message": {
+              "type": "string"
+            }
           },
-          "data": {
-            "type": "string",
-            "format": "byte"
-          },
-          "message": {
-            "type": "string"
+          "required": [
+            "status"
+          ],
+          "example": {
+            "status": "success",
+            "data": "base64encodedbytestring"
           }
-        },
-        "required": [
-          "status"
-        ],
-        "example": {
-          "status": "success",
-          "data": "base64encodedbytestring"
         }
       }
     }
