@@ -34,6 +34,7 @@ library
                      , cryptohash-sha256
                      , base64-bytestring
                      , warp
+                     , katip
                      , zkfold-base
   default-language:    Haskell2010
 
@@ -48,4 +49,5 @@ executable zkfold-prover-api
                     , base64-bytestring
                     , text
                     , warp
+                    , katip
     default-language: Haskell2010
