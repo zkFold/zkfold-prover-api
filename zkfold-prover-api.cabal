@@ -16,16 +16,18 @@ common warnings
 library
   hs-source-dirs:      src
   exposed-modules:     Server
-                     , API.Prove
-                     , Handlers.ProveHandler
                      , Types.ZkProof
                      , Types.Instances
   build-depends:       base ^>=4.18.1.0 && <5
                      , servant
                      , servant-server
+                     , servant-swagger
+                     , servant-swagger-ui
+                     , swagger2
                      , aeson
                      , bytestring
                      , text
+                     , lens
                      , deepseq
                      , generic-deriving
                      , QuickCheck
