@@ -1,0 +1,7 @@
+cradle:
+  cabal:
+    - path: "./src"
+      component: "lib:zkfold-prover-api"
+
+    - path: "./app"
+      component: "zkfold-prover-api:exe:zkfold-prover-api"

@@ -1,28 +1,22 @@
-{-# LANGUAGE DataKinds #-}
-{-# LANGUAGE TypeApplications #-}
 {-# LANGUAGE TypeOperators #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TemplateHaskell #-}
-{-# LANGUAGE StandaloneDeriving #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 
-module Server (app, Env(..), runK) where
+module ZkFold.Prover.API.Server (Env(..), runK, app) where
 
-import Types.ZkProof (ZkProof, WitnessBytes(..), SetupBytes(..))
-import Types.Instances ()
-import Control.Lens ((&), (.~), (?~))
-import Data.Maybe (fromJust)
-import Data.Swagger
-import Servant
-import Servant.Swagger (HasSwagger(..))
-import Servant.Swagger.UI ()
-import System.IO (stdout)
-import Control.Monad.IO.Class (MonadIO(..))
-import qualified Katip as K
-import Data.ByteString (ByteString)
+import           Control.Lens                                    ((&), (.~), (?~))
+import           Control.Monad.IO.Class                          (MonadIO(..))
+import           Data.ByteString                                 (ByteString)
+import           Data.Maybe                                      (fromJust)
+import           Data.Swagger
+import qualified Katip                                           as K
+import           Prelude
+import           Servant
+import           Servant.Swagger                                 (HasSwagger(..))
+import           Servant.Swagger.UI                              ()
 
-import ZkFold.Base.Data.ByteString (fromByteString)
-import ZkFold.Base.Protocol.NonInteractiveProof (proveAPI, ProveAPIResult)
+import           ZkFold.Base.Data.ByteString                     (fromByteString)
+import           ZkFold.Base.Protocol.NonInteractiveProof.Prover (ProveAPIResult, proveAPI)
+import           ZkFold.Prover.API.Types.Args                    (SetupBytes (..), WitnessBytes (..))
+import           ZkFold.Prover.API.Types.ZkProof                 (ZkProof)
 
 type API = ProveAPI :<|> DocAPI
 

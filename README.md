@@ -1,5 +1,5 @@
 # zkFold Prover API
-REST API server for zkFold proof creation and verification. Leverages the [zkFold Base](https://github.com/zkFold/zkfold-base/tree/main) building blocks.
+REST API server for zkFold proof generation. Leverages the [zkFold Base](https://github.com/zkFold/zkfold-base/tree/main) building blocks.
 
 In collaboration with [Maestro](https://github.com/maestro-org)!
 

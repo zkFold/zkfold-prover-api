@@ -1,12 +1,15 @@
 {-# LANGUAGE OverloadedStrings #-}
+
 module Main where
 
-import Network.Wai.Handler.Warp (run)
-import System.Environment (lookupEnv)
-import Text.Read (readMaybe)
-import Server (app, Env(..), runK)
-import Katip (initLogEnv, Environment(..), Namespace(..))
-import Data.Maybe (fromMaybe)
+import           Data.Maybe               (fromMaybe)
+import           Prelude
+import           Katip                    (Environment(..), Namespace(..), initLogEnv)
+import           Network.Wai.Handler.Warp (run)
+import           System.Environment       (lookupEnv)
+import           Text.Read                (readMaybe)
+
+import           ZkFold.Prover.API.Server (app, Env(..), runK)
 
 main :: IO ()
 main = do
