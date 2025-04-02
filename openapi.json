@@ -18,7 +18,7 @@
           "description": "Endpoint for creating a zero-knowledge proof",
           "requestBody": {
             "content": {
-              "application/octet-stream": {
+              "application/json": {
                 "schema": {
                   "type": "string",
                   "format": "byte"
