@@ -7,22 +7,28 @@ In collaboration with [Maestro](https://github.com/maestro-org)!
 
 # Build
 ## Source
-The package compiles with GHC 9.6.3 and Cabal 3.10.2.1.
+The package compiles with GHC 9.12.1 and Cabal 3.14.1.1.
 ```
 make build
 ```
-## Docker
+<!-- Docker currently does not support ghc version 9.12.1 -->
+<!-- ## Docker
 ```
 make docker-build
-```
+``` -->
 # Run
 ## Host
 ```
 make run
 ```
-## Docker
+<!-- ## Docker
 ```
 make docker-run
+``` -->
+
+# Example query
+```
+curl -X POST -H "Content-Type: application/json" -d @examples/simple-witness.json localhost:8080/prove
 ```
 
 # Tests

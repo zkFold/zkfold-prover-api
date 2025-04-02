@@ -11,11 +11,11 @@ build:
 run: build
 	PORT=$(PORT) cabal run
 
-docker-build:
-	docker build -t $(DOCKER_IMAGE) .
+# docker-build:
+# 	docker build -t $(DOCKER_IMAGE) .
 
-docker-run: docker-build
-	docker run -e PORT=$(PORT) -p $(PORT):$(PORT) $(DOCKER_IMAGE)
+# docker-run: docker-build
+# 	docker run -e PORT=$(PORT) -p $(PORT):$(PORT) $(DOCKER_IMAGE)
 
 clean:
 	cabal clean

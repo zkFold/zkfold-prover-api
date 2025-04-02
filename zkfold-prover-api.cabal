@@ -77,6 +77,7 @@ library
                      , ZkFold.Prover.API.Types.Args
                      , ZkFold.Prover.API.Types.ZkProof
   build-depends:       base ^>=4.18.1.0 && <5
+                     , binary
                      , servant
                      , servant-server
                      , servant-swagger
@@ -93,7 +94,7 @@ library
                      , base64-bytestring
                      , warp
                      , katip
-                     , zkfold-base
+                     , symbolic-base
   hs-source-dirs:      src
 
 executable zkfold-prover-api
